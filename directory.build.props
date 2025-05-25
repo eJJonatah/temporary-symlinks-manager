@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="IBM437"?>
+<Project DefaultTargets="Build">
+  <PropertyGroup Label="Global">
+    <!-- Pre compilation properties -->
+    <DefineConstants>$(DefineConstants)</DefineConstants>
+    
+    <!-- Minimum required project configuration -->
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <NoWarn> $(NoWarn); 
+    1735; 0824; 8500; CA1715; IDE0008; IDE0021;
+    IDE0040; IDE0055; IDE0057; IDE0065; IDE0072;
+    IDE0160; IDE0290; IDE1005; IDE1006; RCS1222;
+    IDE0079; RCS1196; RCS1205; </NoWarn>
+    
+    <!-- <InvariantGlobalization>True</InvariantGlobalization> -->
+    <OptimizeImplicitlyTriggeredBuild>True</OptimizeImplicitlyTriggeredBuild>
+    <AccelerateBuildsInVisualStudio>True</AccelerateBuildsInVisualStudio>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+	<EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <AnalysisLevel>preview</AnalysisLevel>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AnalysisMode>All</AnalysisMode>
+
+    <!-- After compilation properties -->
+    <!-- <ThreadPoolMaxThreads>20</ThreadPoolMaxThreads> -->
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <UseWindowsThreadPool>True</UseWindowsThreadPool>
+    <BaseOutputPath>..\bin</BaseOutputPath>
+	  
+  </PropertyGroup>
+  <PropertyGroup Condition="'Release'=='$(Configuration)'">
+    <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	<DebugType>none</DebugType>
+	<Optimize>True</Optimize>
+	<TrimMode>full</TrimMode>
+	  
+  </PropertyGroup>
+  <PropertyGroup Condition="'Debug'=='$(Configuration)'">
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<DebugType>pdbonly</DebugType>
+
+  </PropertyGroup>
+  <PropertyGroup Condition="'x64'=='$(Platform)'">
+    <DefineConstants>$(DefineConstants);TARGET_64BIT</DefineConstants>
+  
+  </PropertyGroup>
+  
+  <ItemGroup>
+	<PackageReference Include="ErrorProne.NET.CoreAnalyzers" Version="0.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+	  
+    <PackageReference Include="ErrorProne.NET.Structs" Version="0.1.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+	  
+	<PackageReference Include="roslynator.analyzers" Version="4.13.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+	  
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="10.8.0.113526">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+	  
+  </ItemGroup>
+
+</Project>
