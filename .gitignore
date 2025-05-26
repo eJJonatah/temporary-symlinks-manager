@@ -2,7 +2,6 @@
 .vs
 obj
 bin
-mount.ps1
 
 */**/obj
 */**/bin
