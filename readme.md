@@ -11,4 +11,4 @@ follows. Its hard to deal with caching when OneDrive is present due to the fact 
 easily ignore specific directory name that will be filled with sometimes tons of cached files (that are easily recreatable like 
 .vs/, node_modules and more)
 
-> How will I solve this? Using symbolic links! (Directory junctions) which are ignore by onedrive by default.
+> How will I solve this? Using symbolic links! (Directory junctions) which are ignored by onedrive by default.
