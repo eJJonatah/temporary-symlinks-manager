@@ -1,2 +1,24 @@
-﻿<!-- slink: ~\AppData\Local\Temp\vars3267973 -->
-<Project Sdk="Microsoft.NET.Sdk"/>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Dink</RootNamespace>
+	<OutputPath>..\bin</OutputPath>
+	<OutputType>exe</OutputType>
+
+  </PropertyGroup>
+	
+  <ItemGroup>
+    <PackageReference Update="SonarAnalyzer.CSharp" Version="10.10.0.116381" />
+	  
+    <EmbeddedResource Update="Resc.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resc.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Resc.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resc.resx</DependentUpon>
+    </Compile>
+	  
+  </ItemGroup>
+	
+</Project>

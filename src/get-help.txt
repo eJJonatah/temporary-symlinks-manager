@@ -1,0 +1,24 @@
+
+> dink.exe [function] path
+
+This utility is used to manage temp directory links. Generally directories used for caching, like .vs, .vscode, .git , bin, node_modules
+all of which cand easily be recreated through cli commands, like devenv, dotnet build or npm init. Basically all this 
+files will be moved to the temporary directoy of this system.
+
+This executable governs a file at the root of the directory named "mount-temp.user.ps1" to input new required directory 
+entries and more. The random temp directory name will be stored there for further crereation. You, user, is free to append to that file
+after the user initialization mark.
+
+usage guide:
+
+dink init   at the root of your project's root directory in order to generate the configuration file. It's 
+           also recommended to add the configuration file name cited before to your global .gitignore setup, since this is 
+           a context-based user-reliant concept it should not be pushed publicly.
+
+# After initialization you can #
+
+dink ad %path   to create a directory junction within the desired path (pointing to a temp-located folder)
+dink rm %path   to remove both symlinc and the temp folder (also removes from the recreation instructions set )
+dink set        to recreate the temporary folder structure needed to work on the project
+
+# Warn! your "mount-temp.user.ps1" file should't be more than 6 directories up your current folder.
